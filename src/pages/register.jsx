@@ -30,7 +30,7 @@ export default function Register() {
 
             <div className="flex flex-col gap-3 mt-2">
                 <Button variant="primary">Daftar</Button>
-                <Button variant="secondary" onClick={() => navigate('/')}>Masuk</Button>
+                <Button variant="secondary" onClick={() => navigate('/login')}>Masuk</Button>
             </div>
 
             <div className="flex items-center my-2">
