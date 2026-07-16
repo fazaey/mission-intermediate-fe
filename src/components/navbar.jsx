@@ -1,14 +1,19 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import Logo from '../assets/logo-videobelajar.png';
-import Button from './button';
+// 1. TAMBAHKAN useLocation DI SINI
+import { useNavigate, Link, useLocation } from 'react-router-dom'; 
+import Logo from '../assets/logo-videobelajar.png'; // Pastikan path logomu benar
+import Button from './Button';
 
 export default function Navbar({ showAuth, isAdminMode, setIsAdminMode }) {
   const navigate = useNavigate();
+  // 2. PANGGIL useLocation UNTUK MENDETEKSI HALAMAN SAAT INI
+  const location = useLocation(); 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  return (
+  // Cek apakah URL saat ini adalah '/' (Homepage)
+  const isHomePage = location.pathname === '/';
 
+  return (
     <nav className="w-full bg-white shadow-sm sticky top-0 z-50 font-sans">
       <div className="max-w-6xl mx-auto px-6 py-4 md:px-10 flex items-center justify-between relative bg-white z-50">
 
@@ -16,16 +21,20 @@ export default function Navbar({ showAuth, isAdminMode, setIsAdminMode }) {
           <img src={Logo} alt="Logo Videobelajar" className="h-8 cursor-pointer" />
         </Link>
 
-        <button 
-          onClick={() => setIsAdminMode(!isAdminMode)}
-          className={`px-3 py-1.5 rounded-lg font-medium text-xs transition-colors cursor-pointer ${
-            isAdminMode 
-              ? 'bg-red-100 text-red-600 border border-red-200' 
-              : 'bg-gray-100 text-gray-600 border border-gray-200 hover:bg-gray-200'
-          }`}
-        >
-          {isAdminMode ? '🔴 Matikan Admin' : '⚙️ Admin Mode'}
-        </button>
+        {/* 3. BUNGKUS TOMBOL DENGAN KONDISI isHomePage */}
+        {/* Tombol HANYA muncul jika kita di Beranda (/) DAN props setIsAdminMode tersedia */}
+        {isHomePage && setIsAdminMode && (
+          <button 
+            onClick={() => setIsAdminMode(!isAdminMode)}
+            className={`px-3 py-1.5 rounded-lg font-medium text-xs transition-colors cursor-pointer ${
+              isAdminMode 
+                ? 'bg-red-100 text-red-600 border border-red-200' 
+                : 'bg-gray-100 text-gray-600 border border-gray-200 hover:bg-gray-200'
+            }`}
+          >
+            {isAdminMode ? '🔴 Matikan Admin' : '⚙️ Admin Mode'}
+          </button>
+        )}
 
         {showAuth && (
           <div className="hidden lg:flex items-center gap-8">
