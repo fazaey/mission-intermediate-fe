@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import Logo from '../assets/logo-videobelajar.png';
-import Button from './Button';
+import Button from './button';
 
 export default function Navbar({ showAuth, isAdminMode, setIsAdminMode }) {
   const navigate = useNavigate();
