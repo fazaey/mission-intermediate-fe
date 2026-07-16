@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import CourseCard from './CourseCard';
+import CourseCard from './courseCard';
 
 export default function CourseSection({ isAdminMode }) {
   const [activeTab, setActiveTab] = useState('Semua Kelas');
