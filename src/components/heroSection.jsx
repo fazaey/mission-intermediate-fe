@@ -1,4 +1,4 @@
-import Button from './Button';
+import Button from './button';
 export default function HeroSection() {
   return (
     <section className="w-full max-w-6xl mx-auto px-4 md:px-10 my-6">
