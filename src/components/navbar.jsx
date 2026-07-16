@@ -1,16 +1,13 @@
 import { useState } from 'react';
-// 1. TAMBAHKAN useLocation DI SINI
 import { useNavigate, Link, useLocation } from 'react-router-dom'; 
-import Logo from '../assets/logo-videobelajar.png'; // Pastikan path logomu benar
+import Logo from '../assets/logo-videobelajar.png';
 import Button from './Button';
 
 export default function Navbar({ showAuth, isAdminMode, setIsAdminMode }) {
   const navigate = useNavigate();
-  // 2. PANGGIL useLocation UNTUK MENDETEKSI HALAMAN SAAT INI
   const location = useLocation(); 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Cek apakah URL saat ini adalah '/' (Homepage)
   const isHomePage = location.pathname === '/';
 
   return (
@@ -21,8 +18,6 @@ export default function Navbar({ showAuth, isAdminMode, setIsAdminMode }) {
           <img src={Logo} alt="Logo Videobelajar" className="h-8 cursor-pointer" />
         </Link>
 
-        {/* 3. BUNGKUS TOMBOL DENGAN KONDISI isHomePage */}
-        {/* Tombol HANYA muncul jika kita di Beranda (/) DAN props setIsAdminMode tersedia */}
         {isHomePage && setIsAdminMode && (
           <button 
             onClick={() => setIsAdminMode(!isAdminMode)}
