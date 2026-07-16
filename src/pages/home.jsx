@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/navbar';
 import HeroSection from '../components/heroSection';
-import CourseSection from '../components/CourseSection';
+import CourseSection from '../components/courseSection';
 import Newsletter from '../components/newsletter';
 import Footer from '../components/footer';
 

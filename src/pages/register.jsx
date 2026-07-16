@@ -1,8 +1,8 @@
-import Navbar from '../components/Navbar';
-import InputField from '../components/InputField';
-import PhoneInputField from '../components/PhoneInputField';
-import PasswordInputField from '../components/PasswordInputField';
-import Button from '../components/Button';
+import Navbar from '../components/navbar';
+import InputField from '../components/inputField';
+import PhoneInputField from '../components/phoneInputField';
+import PasswordInputField from '../components/passwordInputField';
+import Button from '../components/button';
 import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from 'react-router-dom';
 
